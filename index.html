@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +16,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <div class="main-container d-flex align-items-center justify-content-center min-vh-100 p-3">
     <div class="card card-custom p-4 p-md-5 text-center shadow-lg">
-      
+
       <!-- Espaço Reservado para o Logo -->
       <div class="logo-container mb-4 mx-auto d-flex align-items-center justify-content-center">
         <!-- Substitua a tag abaixo pela sua imagem quando quiser:
@@ -31,7 +33,7 @@
       <!-- Título do App -->
       <h1 class="app-title mb-4">Login</h1>
 
-      
+
       <!-- Formulário de Login -->
       <form action="principal.html" method="get" class="login-form">
         <!-- Campo E-mail ou CPF -->
@@ -41,8 +43,11 @@
 
         <!-- Campo Senha -->
         <div class="mb-4 position-relative">
-          <input type="password" class="form-control form-control-custom pe-5" placeholder="Senha" required>
-          <i class="bi bi-eye-slash-fill password-icon position-absolute top-50 end-0 translate-middle-y me-3"></i>
+          <input type="password" id="passwordInput" class="form-control form-control-custom pe-5" placeholder="Senha"
+            required>
+          <i id="togglePassword"
+            class="bi bi-eye-slash-fill password-icon position-absolute top-50 end-0 translate-middle-y me-3"
+            style="cursor: pointer;"></i>
         </div>
 
         <!-- Botão Entrar -->
@@ -53,11 +58,27 @@
       <div class="mb-4">
         <a href="#" class="link-custom">Criar Conta</a>
       </div>
-        </a>
-      </div>
-
+      </a>
     </div>
+
+  </div>
   </div>
 
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('passwordInput');
+
+    togglePassword.addEventListener('click', function () {
+      // Alterna o tipo do input
+      const isPassword = passwordInput.getAttribute('type') === 'password';
+      passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+
+      // Alterna os ícones do Bootstrap Icons
+      this.classList.toggle('bi-eye-slash-fill');
+      this.classList.toggle('bi-eye-fill');
+    });
+  </script>
+
 </body>
+
 </html>
