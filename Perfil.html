@@ -29,12 +29,9 @@
     <!-- Área de Informações do Usuário -->
     <div class="user-profile-section">
       <div class="avatar-wrapper">
-        <div class="avatar-inner">
-          <!-- Coloque a tag <img> com a foto real aqui depois -->
-          <i class="bi bi-person"></i>
-        </div>
+        <img id="foto_perfil" alt="Perfil" class="avatar-inner">
       </div>
-      <div class="user-name">Flavio Henrique</div>
+      <div class="user-name" id="nome">Flavio Henrique</div>
       <div class="user-status">Premium Member</div>
     </div>
 
@@ -89,5 +86,17 @@
   </div> <!-- Fim do App Container -->
 
 </body>
+
+<script>
+  // Recupera o nome salvo no localStorage
+  const nomeSalvo = localStorage.getItem("usuarioNome");
+
+  // Exemplo: se houver um elemento com id="boasVindas", injeta o nome nele
+  if (nomeSalvo) {
+    document.getElementById("nome").textContent = nomeSalvo;
+    document.getElementById("foto_perfil").src = `https://ui-avatars.com/api/?name=${nomeSalvo}&background=a855f7&color=fff`
+
+  }
+</script>
 
 </html>
